@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 @font-face {
@@ -42,6 +41,14 @@ h2 {
 p {
     font-family: Montsserat2;
     font-style: 16px;
+}
+
+a {
+    display: block;
+    width: 100px;
+    height: 25px;
+    border: 1px solid black;
+    text-decoration: none;
 }
 
 .podcastDiv {
