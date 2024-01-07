@@ -1,24 +1,27 @@
+<!-- Importation du tableau podcasts -->
+<?php include "./includes/podcasts.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/podcast.css">
-    <title>podcast</title>
+    <link rel="stylesheet" href="./style/podcast.css?<? echo time() ?>">
+    <title>Podcast</title>
 </head>
 
 <body>
-    <header class="header">
-        <h1>Podcast</h1>
-        <button id="return"><a href="./index.php">Retour à l'index</a></button>
-    </header>
-    <section class="podcast">
-        <?php echo "<i>" . $_GET["date"] . "</i><br>" ?>
-        <?php echo "<h2>" . $_GET["name"] . "</h2><br>" ?>
-        <?php echo "<p>" . $_GET["content"] . "</p><br>" ?>
-        <?php echo '<audio controls src=' . $_GET["url"] . '></audio>' ?>
-    </section>
+
+    <!-- Si la valeur de l'index "id" du tableau $_GET existe (in-array) dans le tableau
+        de clés du tableau $podcasts (array_keys)  -->
+    <? if (in_array(($_GET["id"]), array_keys($podcasts))) {
+        include "./includes/divpodcast.php";
+    } else {
+        include "./includes/404.php";
+    }
+    ?>
+
 </body>
 
 </html>
